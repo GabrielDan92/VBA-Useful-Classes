@@ -1,5 +1,5 @@
 'The objective of this class is to create a timer and count the total script runtime
-'the class can be called by using: *Dim timer As new ClsTimer*, *timer.StartCounter* and *timer.TimeElapsed*
+'the class can be called by using: *Dim timer As new clsTimer*, *timer.StartCounter* and *timer.TimeElapsed*
 
 Option Explicit
 
