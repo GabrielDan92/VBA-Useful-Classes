@@ -1,7 +1,9 @@
-Option Explicit
 'The objective of this class is to create a copy of the current excel file, in case something wrong happens with the original workbook while the script runs.
 'Class created by Gabriel Pintoiu - December 2019
 'the class can be called by using: *Dim backUp As New clsBackup* and *backUp.backupFunction*
+
+Option Explicit
+
 
 Sub backupFunction()
 
