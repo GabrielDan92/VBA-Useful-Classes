@@ -1,5 +1,9 @@
+'THIS IS NOT MY CODE. This is a version of the QueryPerformanceCounter Windows API wrote using VBA. 
+'More details here: https://stackoverflow.com/questions/198409/how-do-you-test-running-time-of-vba-code
+
 'The objective of this class is to create a timer and count the total script runtime
-'the class can be called by using: *Dim timer As new clsTimer*, *timer.StartCounter* and *timer.TimeElapsed*
+'the class can be called by creating a new instance of the class(Dim timer As new clsTimer)
+'and initialize it (timer.StartCounter). timer.TimeElapsed will be used for retrieving the counter.
 
 Option Explicit
 
