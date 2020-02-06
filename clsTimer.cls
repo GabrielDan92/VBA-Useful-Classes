@@ -3,8 +3,8 @@
 'And here: https://stackoverflow.com/questions/198409/how-do-you-test-running-time-of-vba-code
 
 'The objective of this class is to create an accurate VBA timer and count the total runtime.
-'The class can be called by creating a new instance of the class: Dim timer As new clsTimer.
-'The class will be initialized using timer.StartCounter. timer.TimeElapsed will be used for retrieving the counter.
+'The class can be called by creating a new instance of the class: Dim timer (or whatever class name you want) As new clsTimer.
+'The counter will be initialized using className.StartCounter. className.TimeElapsed will be used for retrieving the results.
 
 
 Option Explicit
