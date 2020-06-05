@@ -22,9 +22,11 @@ End Function
 
 
 '=============================================
-'refresh the pivot table(s) from a sheet
+'update pivot's source data and refresh it
 Dim Pivot As PivotTable
 For Each Pivot In Sheets("PIVOT").PivotTables
+    Pivot.ChangePivotCache ThisWorkbook.PivotCaches.Create _
+(SourceType:=xlDatabase, SourceData:=ThisWorkbook.Sheets(1).Range("A1").CurrentRegion)
     Pivot.RefreshTable
     Pivot.Update
 Next
