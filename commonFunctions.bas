@@ -23,12 +23,13 @@ End Function
 
 '=============================================
 'update pivot's source data and refresh it
-Dim Pivot As PivotTable
-For Each Pivot In Sheets("PIVOT").PivotTables
-    Pivot.ChangePivotCache ThisWorkbook.PivotCaches.Create _
-(SourceType:=xlDatabase, SourceData:=ThisWorkbook.Sheets(1).Range("A1").CurrentRegion)
-    Pivot.RefreshTable
-    Pivot.Update
+Dim pTable As PivotTable
+Dim pCache as PivotCache
+
+For Each pTable In Sheet1.PivotTables
+    Set pCache = ThisWorkbook.PivotCaches.Create(xlDatabase, Sheet2.Cells(1, 1).CurrentRegion.Address)
+    pTable.ChangePivotCache pCache
+    pTable.RefreshTable
 Next
 '=============================================
 
