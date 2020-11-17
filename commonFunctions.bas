@@ -28,6 +28,7 @@ Dim pCache as PivotCache
 
 For Each pTable In Sheet1.PivotTables
     Set pCache = ThisWorkbook.PivotCaches.Create(xlDatabase, Sheet2.Cells(1, 1).CurrentRegion.Address)
+    'Set pTable = pCache.CreatePivotTable (TableDestination:=.Sheets("Pivot").Cells(2, 2), TableName:="Pivot")
     pTable.ChangePivotCache pCache
     pTable.RefreshTable
 Next
