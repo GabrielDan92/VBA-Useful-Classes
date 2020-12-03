@@ -1,4 +1,26 @@
 '=============================================
+'SQL open and close functions
+Public Function OpenConnection(ByVal workbookName As String)
+
+    Dim conn_str As String
+    Set Connection = CreateObject("ADODB.Connection")
+    Set Recordset = CreateObject("ADODB.Recordset")
+    conn_str = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" & workbookName & ";Extended Properties=""Excel 12.0 Macro;HDR=YES"";"
+    Connection.Open conn_str
+    
+End Function
+
+Public Function CloseConnection(ByVal workbookName As String)
+
+    Connection.Close
+    Set Connection = Nothing
+    Set Recordset = Nothing
+    
+End Function
+'=============================================
+
+                
+'=============================================
 'refresh an existing PowerQuery connection and wait until all the data has been retrieved before step into the next line of code
 Function refreshPowerQuery(ByVal connection As String)
     Dim boolRefresh As Boolean
@@ -12,7 +34,7 @@ Function refreshPowerQuery(ByVal connection As String)
 End Function
 '=============================================
 
-
+        
 '=============================================
 'find a string within an existing array. Returns a boolean value
 Function IsInArray(ByVal stringToBeFound As String, arr As Variant) As Boolean
