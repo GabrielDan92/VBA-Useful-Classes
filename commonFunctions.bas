@@ -149,3 +149,38 @@ Function onlyDigits(s As String) As String
     onlyDigits = retval
 End Function
 '=============================================
+            
+            
+#If Win64 Then
+  Private Declare PtrSafe Function URLDownloadToFile Lib "urlmon" Alias _
+          "URLDownloadToFileA" ( _
+          ByVal pCaller As LongLong, _
+          ByVal szURL As String, _
+          ByVal szFileName As String, _
+          ByVal dwReserved As LongLong, _
+          ByVal lpfnCB As LongLong) As LongLong
+#Else
+  Private Declare Function URLDownloadToFile Lib "urlmon" Alias _
+          "URLDownloadToFileA" ( _
+          ByVal pCaller As Long, _
+          ByVal szURL As String, _
+          ByVal szFileName As String, _
+          ByVal dwReserved As Long, _
+          ByVal lpfnCB As Long) As Long
+#End If
+
+
+Sub DownloadFileFromWeb()
+Dim i As Integer
+
+    Const strUrl As String = "https://company.sharepoint.com/sites/siteName/Shared Documents/file.xlsx"
+    
+    Dim strSavePath As String
+    Dim returnValue As Long
+    
+    strSavePath = "C:\Users\User\Desktop\temp.xlsx"
+    returnValue = URLDownloadToFile(0, strUrl, strSavePath, 0, 0)
+    Debug.Print (returnValue)
+End Sub
+
+
