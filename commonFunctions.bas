@@ -184,3 +184,7 @@ Dim i As Integer
 End Sub
 
 
+wb.Sheets(1).Cells(1, 1).CurrentRegion.Copy
+Sheet1.Cells(1, 1).PasteSpecial xlPasteValues
+Application.CutCopyMode = False
+
